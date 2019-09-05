@@ -1,27 +1,28 @@
 # AWS CLI Docker Container
-[![GitHub forks](https://img.shields.io/github/forks/sekka1/aws-cli-docker.svg)](https://github.com/sekka1/aws-cli-docker/network)
-[![GitHub stars](https://img.shields.io/github/stars/sekka1/aws-cli-docker.svg)](https://github.com/sekka1/aws-cli-docker/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/sekka1/aws-cli-docker.svg)](https://github.com/sekka1/aws-cli-docker/issues)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/sekka1/aws-cli-docker.svg?style=social)](https://twitter.com/intent/tweet?text=AWS%20CLI%20in%20a%20%40Docker%20container%20%40AWSCLI:&url=https://github.com/sekka1/aws-cli-docker)
-[![Docker Pulls](https://img.shields.io/docker/pulls/garland/aws-cli-docker.svg)](https://hub.docker.com/r/garland/aws-cli-docker/)
-[![Docker Stars](https://img.shields.io/docker/stars/garland/aws-cli-docker.svg)](https://hub.docker.com/r/garland/aws-cli-docker/)
-
+[![GitHub forks](https://img.shields.io/github/forks/mvgrimes/aws-cli.svg)](https://github.com/mvgrimes/aws-cli/network)
+[![GitHub stars](https://img.shields.io/github/stars/mvgrimes/aws-cli.svg)](https://github.com/mvgrimes/aws-cli/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/mvgrimes/aws-cli.svg)](https://github.com/mvgrimes/aws-cli/issues)
+[![Docker Pulls](https://img.shields.io/docker/pulls/mvgrimes/aws-cli.svg)](https://hub.docker.com/r/mvgrimes/aws-cli/)
+[![Docker Stars](https://img.shields.io/docker/stars/mvgrimes/aws-cli.svg)](https://hub.docker.com/r/mvgrimes/aws-cli/)
 
 # Supported tags and respective `Dockerfile` links
 
-- [`0.1` (*0.1/Dockerfile*)](https://github.com/sekka1/aws-cli-docker/blob/0.1/0.1/Dockerfile)
-- [`0.2` (*0.2/Dockerfile*)](https://github.com/sekka1/aws-cli-docker/blob/0.2/0.2/Dockerfile)
-- [`1.15.47` (*1.15.47/Dockerfile*)](https://github.com/sekka1/aws-cli-docker/tree/master/1.15.47)
-- [`1.16.140` (*1.16.140/Dockerfile*)](https://github.com/sekka1/aws-cli-docker/tree/master/1.16.140)
+- [`1.16.140` (*1.16.140/Dockerfile*)](https://github.com/mvgrimes/aws-cli/tree/master/1.16.140)
 
 # AWS CLI Version
 
 * [1.16.140](https://github.com/aws/aws-cli/releases/tag/1.16.140)
 
+# Forked
+
+This was forked from [sekka1](garlan://hub.docker.com/u/garland)'s
+[aws-cli-docker](https://github.com/sekka1/aws-cli-docker) project to add `git` to
+the installed tools.
+
 # Build
 
 ```
-docker build -t garland/aws-cli-docker:x.x .
+docker build -t mvgrimes/aws-cli:x.x .
 ```
 
 # Description
@@ -30,7 +31,7 @@ Docker container with the AWS CLI installed.
 
 Using [Alpine linux](https://hub.docker.com/_/alpine/).  The Docker image is 87MB
 
-An automated build of this image is on Docker Hub: https://hub.docker.com/r/garland/aws-cli-docker/
+An automated build of this image is on Docker Hub: https://hub.docker.com/r/mvgrimes/aws-cli/
 
 ## Getting your AWS Keys:
 
@@ -56,7 +57,7 @@ An automated build of this image is on Docker Hub: https://hub.docker.com/r/garl
     --env AWS_ACCESS_KEY_ID=<<YOUR_ACCESS_KEY>> \
     --env AWS_SECRET_ACCESS_KEY=<<YOUR_SECRET_ACCESS>> \
     --env AWS_DEFAULT_REGION=us-east-1 \
-    garland/aws-cli-docker \
+    mvgrimes/aws-cli \
     aws ec2 describe-instances --instance-ids i-90949d7a
 
 output:
@@ -83,7 +84,7 @@ output:
     docker run \
     --env AWS_ACCESS_KEY_ID=<<YOUR_ACCESS_KEY>> \
     --env AWS_SECRET_ACCESS_KEY=<<YOUR_SECRET_ACCESS>> \
-    garland/aws-cli-docker \
+    mvgrimes/aws-cli \
     aws s3 ls
 
 output:
@@ -97,7 +98,7 @@ output:
     --env AWS_ACCESS_KEY_ID=<<YOUR_ACCESS_KEY>> \
     --env AWS_SECRET_ACCESS_KEY=<<YOUR_SECRET_ACCESS>> \
     -v $PWD:/data \
-    garland/aws-cli-docker \
+    mvgrimes/aws-cli \
     aws s3 sync . s3://mybucket
 
 output:
@@ -115,7 +116,7 @@ We will map the private keys that resides on your local system to inside the con
     --env AWS_ACCESS_KEY_ID=<<YOUR_ACCESS_KEY>> \
     --env AWS_SECRET_ACCESS_KEY=<<YOUR_SECRET_ACCESS>> \
     --env AWS_DEFAULT_REGION=us-east-1 \
-    garland/aws-cli-docker \
+    mvgrimes/aws-cli \
     aws ec2 get-password-data --instance-id  <<YOUR_INSTANCE_ID>> --priv-launch-key /tmp/key.pem
 
 Output:
